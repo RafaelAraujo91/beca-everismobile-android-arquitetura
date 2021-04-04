@@ -37,6 +37,6 @@ class HolidayAdapter() : RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
-        holder.bind(holidayList.get(pos))
+        holder.bind(holidayList[pos])
     }
 }
