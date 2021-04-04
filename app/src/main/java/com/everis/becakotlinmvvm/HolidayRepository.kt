@@ -13,7 +13,7 @@ class HolidayRepository {
     fun fetchHolidays(): MutableLiveData<List<HolidayModel>> {
         var mutableList: MutableLiveData<List<HolidayModel>> = MutableLiveData()
 
-        val apiInterface = RetrofitClient.getRetrofitInstance("https://date.nager.at/api/v2/")
+        val apiInterface = RetrofitClient.getRetrofitInstance("${Constants().BASE_URL}")
             .create(ApiInterface::class.java)
 
         apiInterface.getHolidays().enqueue(object : Callback<List<HolidayModel>> {
