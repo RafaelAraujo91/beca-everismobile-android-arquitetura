@@ -11,7 +11,7 @@ class HolidayRepository {
     val TAG: String = javaClass.simpleName
 
     fun fetchHolidays(): MutableLiveData<List<HolidayModel>> {
-        val mutableList: MutableLiveData<List<HolidayModel>> = MutableLiveData()
+        var mutableList: MutableLiveData<List<HolidayModel>> = MutableLiveData()
 
         val apiInterface = RetrofitClient.getRetrofitInstance("https://date.nager.at/api/v2/")
             .create(ApiInterface::class.java)
