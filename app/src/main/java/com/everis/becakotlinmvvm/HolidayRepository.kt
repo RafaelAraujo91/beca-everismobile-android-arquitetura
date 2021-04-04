@@ -21,8 +21,6 @@ class HolidayRepository {
                 call: Call<List<HolidayModel>>,
                 response: Response<List<HolidayModel>>
             ) {
-                Log.e(TAG, "onResponse response=" + response.toString())
-
                 if (response.isSuccessful) {
                     Log.e(TAG, "onResponse response.size=" + response.body()?.size)
 
