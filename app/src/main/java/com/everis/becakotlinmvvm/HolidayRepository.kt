@@ -1,6 +1,11 @@
 package com.everis.becakotlinmvvm
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,7 +18,7 @@ class HolidayRepository {
     fun fetchHolidays(): MutableLiveData<List<HolidayModel>> {
         var mutableList: MutableLiveData<List<HolidayModel>> = MutableLiveData()
 
-        val apiInterface = RetrofitClient.getRetrofitInstance("${Constants().BASE_URL}")
+        val apiInterface = RetrofitClient.getRetrofitInstance(Constants().BASE_URL)
             .create(ApiInterface::class.java)
 
         apiInterface.getHolidays().enqueue(object : Callback<List<HolidayModel>> {
@@ -21,7 +26,7 @@ class HolidayRepository {
                 call: Call<List<HolidayModel>>,
                 response: Response<List<HolidayModel>>
             ) {
-                Log.e(TAG, "onResponse response="+response.toString())
+                Log.e(TAG, "onResponse response=" + response.toString())
 
                 if (response.isSuccessful) {
                     Log.e(TAG, "onResponse response.size=" + response.body()?.size)
@@ -40,4 +45,26 @@ class HolidayRepository {
 
         return mutableList
     }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun isOnline(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (connectivityManager != null) {
+            val capabilities =
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            if (capabilities != null) {
+            if (capabilities!!.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                return true
+            } else if (capabilities!!.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                return true
+            }
+        }
+    }
+    return false
+}
 }
