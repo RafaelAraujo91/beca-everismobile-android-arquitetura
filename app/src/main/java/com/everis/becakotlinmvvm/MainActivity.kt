@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         val holidayViewModel = HolidayViewModel()
 
-        if (holidayRepository.isConnectedToNetwork(this)) {
             binding.progressBar.visibility = View.VISIBLE
 
             holidayViewModel.getHolidays().observe(this,
@@ -39,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                     holidayAdapter.notifyDataSetChanged()
                 })
         }
-    }
 
     private fun initUI() {
         binding.rvHolidayList.setHasFixedSize(true);

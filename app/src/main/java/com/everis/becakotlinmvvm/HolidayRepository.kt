@@ -1,11 +1,6 @@
 package com.everis.becakotlinmvvm
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,10 +40,4 @@ class HolidayRepository {
 
         return mutableList
     }
-
-    fun isConnectedToNetwork(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        return connectivityManager?.activeNetworkInfo?.isConnectedOrConnecting ?: false
-    }
-
 }
