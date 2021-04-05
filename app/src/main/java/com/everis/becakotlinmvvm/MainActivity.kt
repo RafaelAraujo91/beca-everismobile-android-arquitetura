@@ -18,10 +18,8 @@ class MainActivity : AppCompatActivity() {
     val TAG = javaClass.simpleName
 
     lateinit var holidayAdapter: HolidayAdapter
-    lateinit var holidayRepository: HolidayRepository
     private lateinit var binding: ActivityMainBinding
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

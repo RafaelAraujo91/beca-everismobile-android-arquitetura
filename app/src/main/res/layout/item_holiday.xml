@@ -4,7 +4,7 @@
     <data>
         <variable
             name="model"
-            type="com.everis.becakotlinmvvm.data.model.HolidayModel" />
+            type="com.everis.becakotlinmvvm.domain.HolidayModel" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
