@@ -1,8 +1,9 @@
-package com.everis.becakotlinmvvm
+package com.everis.becakotlinmvvm.domain
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.everis.becakotlinmvvm.data.HolidayRepository
 import com.everis.becakotlinmvvm.data.model.HolidayModel
 
 class HolidayViewModel: ViewModel() {

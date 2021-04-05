@@ -8,7 +8,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.everis.becakotlinmvvm.data.HolidayRepository
 import com.everis.becakotlinmvvm.databinding.ActivityMainBinding
+import com.everis.becakotlinmvvm.domain.HolidayViewModel
 
 class MainActivity : AppCompatActivity() {
 
