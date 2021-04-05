@@ -18,8 +18,8 @@ class HolidayRepository {
 
         apiInterface.getHolidays().enqueue(object : Callback<List<HolidayModel>> {
             override fun onResponse(
-                call: Call<List<HolidayModel>>,
-                response: Response<List<HolidayModel>>
+                    call: Call<List<HolidayModel>>,
+                    response: Response<List<HolidayModel>>
             ) {
                 Log.e(TAG, "onResponse response=" + response.toString())
 

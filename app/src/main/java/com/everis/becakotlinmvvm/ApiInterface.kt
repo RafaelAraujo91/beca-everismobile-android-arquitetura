@@ -1,5 +1,6 @@
 package com.everis.becakotlinmvvm
 
+import com.everis.becakotlinmvvm.HolidayModel
 import retrofit2.Call
 import retrofit2.http.GET
 

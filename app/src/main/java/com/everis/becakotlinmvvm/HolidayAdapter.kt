@@ -18,7 +18,7 @@ class HolidayAdapter() : RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
         this.holidayList = arrList
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, pos: Int):  ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ViewHolder {
         val binding: ItemHolidayBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.item_holiday, parent, false)
 
