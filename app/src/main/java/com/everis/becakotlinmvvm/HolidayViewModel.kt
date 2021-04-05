@@ -3,7 +3,7 @@ package com.everis.becakotlinmvvm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.everis.becakotlinmvvm.data.HolidayModel
+import com.everis.becakotlinmvvm.data.model.HolidayModel
 
 class HolidayViewModel: ViewModel() {
     
