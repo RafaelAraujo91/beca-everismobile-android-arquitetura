@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         val holidayViewModel = HolidayViewModel()
 
-        if (holidayRepository.isOnline(this)) {
+        if (holidayRepository.isConnectedToNetwork(this)) {
             binding.progressBar.visibility = View.VISIBLE
 
             holidayViewModel.getHolidays().observe(this,
