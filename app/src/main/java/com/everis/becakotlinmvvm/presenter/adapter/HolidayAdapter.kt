@@ -1,9 +1,12 @@
-package com.everis.becakotlinmvvm
+package com.everis.becakotlinmvvm.presenter.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.everis.becakotlinmvvm.BR
+import com.everis.becakotlinmvvm.R
+import com.everis.becakotlinmvvm.domain.HolidayModel
 import com.everis.becakotlinmvvm.databinding.ItemHolidayBinding
 
 class HolidayAdapter() : RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
@@ -18,7 +21,7 @@ class HolidayAdapter() : RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
         this.holidayList = arrList
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, pos: Int):  ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, pos: Int): ViewHolder {
         val binding: ItemHolidayBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.item_holiday, parent, false)
 
@@ -37,6 +40,6 @@ class HolidayAdapter() : RecyclerView.Adapter<HolidayAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
-        holder.bind(holidayList.get(pos))
+        holder.bind(holidayList[pos])
     }
 }

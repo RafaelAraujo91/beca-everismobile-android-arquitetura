@@ -1,4 +1,4 @@
-package com.everis.becakotlinmvvm
+package com.everis.becakotlinmvvm.data
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

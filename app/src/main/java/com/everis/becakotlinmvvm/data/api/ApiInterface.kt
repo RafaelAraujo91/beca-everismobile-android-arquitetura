@@ -1,5 +1,6 @@
-package com.everis.becakotlinmvvm
+package com.everis.becakotlinmvvm.data.api
 
+import com.everis.becakotlinmvvm.domain.HolidayModel
 import retrofit2.Call
 import retrofit2.http.GET
 

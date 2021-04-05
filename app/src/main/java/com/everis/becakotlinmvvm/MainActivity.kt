@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.everis.becakotlinmvvm.databinding.ActivityMainBinding
+import com.everis.becakotlinmvvm.presenter.HolidayViewModel
+import com.everis.becakotlinmvvm.presenter.adapter.HolidayAdapter
+import com.everis.becakotlinmvvm.utils.Connected
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,17 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         initUI()
 
-        val holidayViewModel = HolidayViewModel()
+        if (Connected.isConnected(this)) {
+            val holidayViewModel = HolidayViewModel()
+            initObs(holidayViewModel)
 
-        binding.progressBar.visibility = View.VISIBLE
-
-        holidayViewModel.getHolidays().observe(this,
-            { t ->
-                Log.e(TAG, "observe onChanged()="+t?.size )
-                binding.progressBar.visibility = View.GONE
-                holidayAdapter.addData(t!!)
-                holidayAdapter.notifyDataSetChanged()
-            })
+        }
     }
 
     private fun initUI() {
@@ -45,4 +42,14 @@ class MainActivity : AppCompatActivity() {
         binding.rvHolidayList.adapter = holidayAdapter
     }
 
+    private fun initObs(holidayViewModel: HolidayViewModel) {
+        binding.progressBar.visibility = View.VISIBLE
+        holidayViewModel.getHolidays().observe(this,
+                { t ->
+                    Log.e(TAG, "observe onChanged()=" + t?.size)
+                    binding.progressBar.visibility = View.GONE
+                    holidayAdapter.addData(t!!)
+                    holidayAdapter.notifyDataSetChanged()
+                })
+    }
 }
