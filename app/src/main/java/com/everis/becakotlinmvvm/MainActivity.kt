@@ -28,16 +28,8 @@ class MainActivity : AppCompatActivity() {
         initUI()
 
         val holidayViewModel = HolidayViewModel()
+        initObs(holidayViewModel)
 
-            binding.progressBar.visibility = View.VISIBLE
-
-            holidayViewModel.getHolidays().observe(this,
-                { t ->
-                    Log.e(TAG, "observe onChanged()=" + t?.size)
-                    binding.progressBar.visibility = View.GONE
-                    holidayAdapter.addData(t!!)
-                    holidayAdapter.notifyDataSetChanged()
-                })
         }
 
     private fun initUI() {
@@ -48,6 +40,17 @@ class MainActivity : AppCompatActivity() {
 
         holidayAdapter = HolidayAdapter()
         binding.rvHolidayList.adapter = holidayAdapter
+    }
+
+    private fun initObs(holidayViewModel: HolidayViewModel) {
+        binding.progressBar.visibility = View.VISIBLE
+        holidayViewModel.getHolidays().observe(this,
+                { t ->
+                    Log.e(TAG, "observe onChanged()=" + t?.size)
+                    binding.progressBar.visibility = View.GONE
+                    holidayAdapter.addData(t!!)
+                    holidayAdapter.notifyDataSetChanged()
+                })
     }
 
 }
