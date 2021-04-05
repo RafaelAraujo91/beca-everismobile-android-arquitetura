@@ -1,17 +1,15 @@
 package com.everis.becakotlinmvvm
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.everis.becakotlinmvvm.data.HolidayRepository
 import com.everis.becakotlinmvvm.databinding.ActivityMainBinding
 import com.everis.becakotlinmvvm.presenter.HolidayViewModel
 import com.everis.becakotlinmvvm.presenter.adapter.HolidayAdapter
+import com.everis.becakotlinmvvm.utils.Connected
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,10 +25,12 @@ class MainActivity : AppCompatActivity() {
 
         initUI()
 
-        val holidayViewModel = HolidayViewModel()
-        initObs(holidayViewModel)
+        if (Connected.isConnected(this)) {
+            val holidayViewModel = HolidayViewModel()
+            initObs(holidayViewModel)
 
         }
+    }
 
     private fun initUI() {
         binding.rvHolidayList.setHasFixedSize(true);
@@ -52,5 +52,4 @@ class MainActivity : AppCompatActivity() {
                     holidayAdapter.notifyDataSetChanged()
                 })
     }
-
 }

@@ -4,10 +4,11 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 
-class IsConnected() {
-    lateinit var connectivityManager: ConnectivityManager
+object Connected {
 
-    fun isNetworkAvailable(context: Context): Boolean {
+    private lateinit var connectivityManager: ConnectivityManager
+
+    fun isConnected(context: Context): Boolean {
         connectivityManager = (context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?)!!;
         var activeNetworkInfo: NetworkInfo? = null;
         if (connectivityManager != null) {
