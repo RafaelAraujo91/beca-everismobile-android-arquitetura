@@ -1,9 +1,11 @@
-package com.everis.becakotlinmvvm
+package com.everis.becakotlinmvvm.presenter.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.everis.becakotlinmvvm.BR
+import com.everis.becakotlinmvvm.R
 import com.everis.becakotlinmvvm.data.model.HolidayModel
 import com.everis.becakotlinmvvm.databinding.ItemHolidayBinding
 

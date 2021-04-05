@@ -1,4 +1,4 @@
-package com.everis.becakotlinmvvm.domain
+package com.everis.becakotlinmvvm.presenter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

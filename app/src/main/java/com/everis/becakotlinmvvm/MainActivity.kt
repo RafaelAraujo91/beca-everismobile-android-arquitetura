@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.everis.becakotlinmvvm.data.HolidayRepository
 import com.everis.becakotlinmvvm.databinding.ActivityMainBinding
-import com.everis.becakotlinmvvm.domain.HolidayViewModel
+import com.everis.becakotlinmvvm.presenter.HolidayViewModel
+import com.everis.becakotlinmvvm.presenter.adapter.HolidayAdapter
 
 class MainActivity : AppCompatActivity() {
 
